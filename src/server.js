@@ -1,6 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
+import { errors } from 'celebrate';
 import helmet from 'helmet';
 
 import { connectMongoDB } from './db/connectMongoDB.js';
@@ -25,7 +26,7 @@ app.get('/test-error', () => {
 });
 
 app.use(notFoundHandler);
-
+app.use(errors());
 app.use(errorHandler);
 
 await connectMongoDB();
