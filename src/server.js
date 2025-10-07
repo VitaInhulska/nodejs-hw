@@ -21,10 +21,6 @@ app.use(helmet());
 
 app.use(notesRoutes);
 
-app.get('/test-error', () => {
-  throw new Error('Simulated server error');
-});
-
 app.use(notFoundHandler);
 app.use(errors());
 app.use(errorHandler);
